@@ -1,5 +1,7 @@
 package romannumeraloptimization;
 
+import java.lang.*;
+
 /** program to optimise the number of Roman numerals used to express numerical values. **/
 /* for example... 'IIIII' is valid, however 'V' in this situation is better. **/
 public class RomanNumeralOptimization {
@@ -25,13 +27,34 @@ public class RomanNumeralOptimization {
     }
     
     /** method to minimise the number of characters needed to represent a Roman numeral string. **/
+    /** this method implements my own algorithm with NO other functional dependencies such as ".contains()" etc. **/
     public static String optimise(String input)
     {
         String formattedOutput = "";
         
+        // Optimise the amount of 'I' characters.
+        for (int i = 0; i < input.length(); i++)
+        {
+            
+        }
         
+        // Optimise the amount of 'V' characters.
+        for (int i = 0; i < input.length(); i++)
+        {
+            
+        }
         
         return formattedOutput;
     }
     
+    /** method to minimise the number of characters needed to represent a Roman numeral string. **/
+    /** this method is still my own algorithm, however it DOES includes functional dependencies including ".contains()" etc. **/
+    public static String optimiseAltVersion(String input)
+    {
+        String formattedInput = "";
+        
+        
+        
+        return formattedInput;
+    }
 }
