@@ -1,7 +1,5 @@
 package romannumeraloptimization;
 
-import java.lang.*;
-
 /** program to optimise the number of Roman numerals used to express numerical values. **/
 /* for example... 'IIIII' is valid, however 'V' in this situation is better. **/
 public class RomanNumeralOptimization {
@@ -25,24 +23,15 @@ public class RomanNumeralOptimization {
         System.out.print(optimise(demoInput4) + "\n\n");
         System.out.print(optimise(demoInput5) + "\n\n");
         System.out.print(optimise(demoInput6) + "\n\n");
-        
-        System.out.print("Alternate algorithm: \n\n");
-        
-        // Optimise all inputs and output new answers.
-        System.out.print(optimiseAltVersion(demoInput1) + "\n\n");
-        System.out.print(optimiseAltVersion(demoInput2) + "\n\n");
-        System.out.print(optimiseAltVersion(demoInput3) + "\n\n");
-        System.out.print(optimiseAltVersion(demoInput4) + "\n\n");
-        System.out.print(optimiseAltVersion(demoInput5) + "\n\n");
-        System.out.print(optimiseAltVersion(demoInput6) + "\n\n");
-        
     }
     
     /** method to minimise the number of characters needed to represent a Roman numeral string. **/
     /** this method implements my own algorithm with NO other functional dependencies such as ".contains()" etc. **/
     public static String optimise(String input)
     {
-        String formattedOutput = "";
+        String formattedIOutput = "";
+        String formattedVOutput = "";
+        String finalFormattedString = "";
         
         int Icounter = 0;
         
@@ -57,19 +46,19 @@ public class RomanNumeralOptimization {
             }
             else 
             {
-                formattedOutput += currentChar;
+                formattedIOutput += currentChar;
             }
             
             if (Icounter == 5)
             {
                 Icounter = 0;
-                formattedOutput += "V";
+                formattedIOutput += "V";
             }
-            else if ((Icounter != 5) && (i == input.length() - 1))
+            else if ((Icounter != 5) && (i == (input.length() - 1)))
             {
                 for (int j = 0; j < Icounter; j++)
                 {
-                    formattedOutput += "I";
+                    formattedIOutput += "I";
                 }
             }
             
@@ -78,30 +67,59 @@ public class RomanNumeralOptimization {
         int Vcounter = 0;
         
         // Optimise the amount of 'V' characters.
-        for (int i = 0; i < input.length(); i++)
+        for (int i = 0; i < formattedIOutput.length(); i++)
         {
-            char currentChar = input.charAt(i);
+            char currentChar = formattedIOutput.charAt(i);
             
+            if (currentChar == 'V')
+            {
+                Vcounter++;
+            }
+            else 
+            {
+                formattedVOutput += currentChar;
+            }
             
+            if (Vcounter == 2)
+            {
+                Vcounter = 0;
+                formattedVOutput += "X";
+            }
+            else if ((Vcounter != 2) && (i == (formattedIOutput.length() - 1)))
+            {
+                for (int j = 0; j < Vcounter; j++)
+                {
+                    formattedVOutput += "V";
+                }
+            }
         }
+        
+        int shiftQuantity = 0;
         
         /** shift all remaining 'I' characters to the end of the formatted string. **/
-        for (int i = 0; i < input.length(); i++)
+        for (int i = 0; i < formattedVOutput.length(); i++)
         {
+            char currentChar = formattedVOutput.charAt(i);
             
+            if ((currentChar == 'I') && (i != (formattedVOutput.length() - 1)))
+            {
+                shiftQuantity++;
+                
+            }
+            else 
+            {
+                finalFormattedString += currentChar;
+            }
+            
+            if (i == (formattedVOutput.length() - 1))
+            {
+                for (int j = 0; j < shiftQuantity; j++)
+                {
+                    finalFormattedString += "I";
+                }
+            }
         }
         
-        return formattedOutput;
-    }
-    
-    /** method to minimise the number of characters needed to represent a Roman numeral string. **/
-    /** this method is still my own algorithm, however it DOES includes functional dependencies including ".contains()" etc. **/
-    public static String optimiseAltVersion(String input)
-    {
-        String formattedInput = "";
-        
-        
-        
-        return formattedInput;
+        return finalFormattedString;
     }
 }
