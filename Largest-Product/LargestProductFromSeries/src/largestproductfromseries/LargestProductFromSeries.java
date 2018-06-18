@@ -1,5 +1,7 @@
 package largestproductfromseries;
 
+import java.lang.*;
+
 /** program to locate the 'x' number of digits from a sequence that produce the largest product. **/
 public class LargestProductFromSeries {
 
@@ -40,7 +42,32 @@ public class LargestProductFromSeries {
     /** method to iterate the sequence and calculate the largest product. **/
     public static long getLargestProduct(String sequence, int adjacentDigits)
     {
+        long largestProduct = 0;
         
-        return 1;
+        for (int i = 0; i < sequence.length() && i <= sequence.length() - adjacentDigits; i++)
+        {
+            long[] tempLargestProduct = new long[adjacentDigits];
+            int tempIndex = 0;
+            
+            for (int j = i; j < i + (adjacentDigits); j++)
+            {
+                tempLargestProduct[tempIndex] = Integer.parseInt(Character.toString(sequence.charAt(j)));
+                tempIndex++;        
+            }
+            
+            long tempSum = tempLargestProduct[0];
+            
+            for (int j = 1; j < tempLargestProduct.length; j++)
+            {
+                tempSum *= tempLargestProduct[j];
+            }
+            
+            if (tempSum > largestProduct)
+            {
+                largestProduct = tempSum;
+            }
+        }
+        
+        return largestProduct;
     }
 }
