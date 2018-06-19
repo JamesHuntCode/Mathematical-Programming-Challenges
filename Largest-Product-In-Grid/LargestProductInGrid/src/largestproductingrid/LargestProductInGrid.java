@@ -9,15 +9,23 @@ public class LargestProductInGrid {
         String[] grid = createGrid();
         
         // Locate and log the largest product.
-        System.out.print("The largest product of the grid (in the specified directions) is " + getLargestProduct(grid) + ".\n");
+        System.out.print("The largest product of the grid (in the specified directions) is " + getLargestProduct(grid, 4) + ".\n");
     }
     
     /** method to iterate over grid and locate the largest product of numbers in each direction. **/
-    public static int getLargestProduct(String[] grid)
+    public static int getLargestProduct(String[] grid, int span)
     {
         int largestProduct = 0;
+        int gridHeight = grid.length;
+        int lineLength = fetchEntireGridLine(grid, 0).length;
         
-        
+        for (int i = 0; i < gridHeight; i++)
+        {
+            for (int j = 0; j < lineLength; j++)
+            {
+                System.out.print(Integer.parseInt(fetchEntireGridLine(grid, i)[j]));
+            }
+        }
        
         return largestProduct;
     }
