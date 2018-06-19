@@ -12,7 +12,7 @@ public class LargeSum {
         String largeNumber = getLargeNumber();
         
         // Log the first 10 digits of the sum of the large number.
-        System.out.print("The first 10 digits of the sum of the example large number is " + getFirstDigits(10, sumLargeNumber(largeNumber)));
+        System.out.print("The first 10 digits of the sum of the example large number are: " + getFirstDigits(10, sumLargeNumber(largeNumber)) + "\n");
  
     }
     
