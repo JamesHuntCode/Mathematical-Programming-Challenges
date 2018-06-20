@@ -13,17 +13,29 @@ public class LargestProductInGrid {
     }
     
     /** method to iterate over grid and locate the largest product of numbers in each direction. **/
-    public static int getLargestProduct(String[] grid, int span)
+    public static long getLargestProduct(String[] grid, int span)
     {
-        int largestProduct = 0;
+        long largestProduct = 0;
+        
+        // Grid dimentions.
         int gridHeight = grid.length;
         int lineLength = fetchEntireGridLine(grid, 0).length;
         
-        for (int i = 0; i < gridHeight; i++)
+        for (int i = 0; i < gridHeight - span; i++)
         {
-            for (int j = 0; j < lineLength; j++)
+            for (int j = 0; j < lineLength && j + span < lineLength; j++)
             {
-                System.out.print(Integer.parseInt(fetchEntireGridLine(grid, i)[j]));
+                long currentProduct = Integer.parseInt(fetchEntireGridLine(grid, i)[j]);     
+            
+                int shift = 1;
+                
+                for (int k = 0; k < span; k++)
+                {
+                    currentProduct *= Integer.parseInt(fetchEntireGridLine(grid, i + shift)[j + shift]);                 
+                    shift++;
+                }
+                
+                if (currentProduct > largestProduct) largestProduct = currentProduct;
             }
         }
        
