@@ -9,7 +9,7 @@ public class SpecialPythagoreanTriplet {
     public static void main(String[] args) {
        
        // Log the product of the pythagorean triplet of 1000.
-       int product = getProductOfTriplet(findPythagoreanTriplet(25));
+       int product = getProductOfTriplet(findPythagoreanTriplet(1000));
        System.out.print("The sum of the pythagorean triplet of the input is " + product + ".\n\n"); 
        
     }
@@ -19,13 +19,22 @@ public class SpecialPythagoreanTriplet {
     {
         ArrayList<Integer> values = new ArrayList<>();
         
-        for (int i = 0; i < input; i++)
+        for (int i = 2; i < input; i++)
         {
-            for (int j = 0; j < input; j++)
+            for (int j = 2; j < input; j++)
             {
-                for (int k = 0; k < input; k++)
+                if (Math.pow(i, 2) + Math.pow(j, 2) + (int)(Math.pow(i, 2) + Math.pow(j, 2)) == input)
                 {
+                    // Add factors.
+                    values.add(i);
+                    values.add(j);
                     
+                    // Add sum.
+                    int sum = (int)(Math.pow(i, 2) + Math.pow(j, 2));
+                    values.add(sum);
+                    
+                    // Break loop.
+                    break;
                 }
             }
         }
@@ -36,12 +45,14 @@ public class SpecialPythagoreanTriplet {
     /** method to get product of values passed in via the array-list. **/
     public static int getProductOfTriplet(ArrayList<Integer> tripletValues)
     {
-        int product = 0;
+        int product = tripletValues.get(0);
         
-        for (int i = 0; i < tripletValues.size(); i++)
+        for (int i = 1; i < tripletValues.size(); i++)
         {
-            product += tripletValues.get(i);
+            product *= tripletValues.get(i);
         }
+        
+        System.out.print("Triplet consists of; " + tripletValues.get(0) + " " + tripletValues.get(1) + " " + tripletValues.get(2) + ".\n\n");
         
         return product;
     }
