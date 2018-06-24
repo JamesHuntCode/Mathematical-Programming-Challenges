@@ -8,6 +8,7 @@ public class LargestPalindromeProduct {
 
     public static void main(String[] args) {
         
+        // Log the result.
         System.out.print("The largest palindrome product that can be made from 3 digits is " + getLargestPalindromeProduct(99) + ".\n\n");
         
     }
@@ -17,17 +18,22 @@ public class LargestPalindromeProduct {
     {
         int largestValue = 0;
         
-        for (int i = 2; i < digitLimit; i++)
+        for (int i = 2; i < (digitLimit + 1); i++)
         {
-            for (int j = 2; j < digitLimit; j++)
+            for (int j = 2; j < (digitLimit + 1); j++)
             {
                 
+                // Numerical values.
                 int integerValue = (i * j);
                 String stringValue = String.valueOf(integerValue);
                 
-                if (((i * j) > largestValue) && (stringValue.length() % 2 == 0) && (stringValue.substring(0, stringValue.length() / 2).equals(stringValue.substring(stringValue.length() / 2, stringValue.length()))))
+                // Subtrings.
+                String firstHalf = stringValue.substring(0, stringValue.length() / 2);
+                String secondHalf = stringValue.substring(stringValue.length() / 2);
+                
+                if (((integerValue) > largestValue) && (stringValue.length() % 2 == 0) && (firstHalf.equals(new StringBuffer(secondHalf).reverse().toString())))
                 {
-                    largestValue = (i * j);
+                    largestValue = integerValue;
                 }
             }
         }
