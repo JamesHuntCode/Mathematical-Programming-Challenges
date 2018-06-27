@@ -10,15 +10,28 @@ public class LongestCollatzSequence {
     /** the Collatz sequence dictates that n -> = (n/2) if 'n' is even and n -> = (3n + 1) if 'n' is odd. **/
     public static void main(String[] args) {
         
-        // Log the result.
+        // Calculate sequence.
         ArrayList<Integer> emptyList = new ArrayList<>();
-        ArrayList<Integer> CollatzSequence = calculateNextCollatz(13, emptyList);
+        //ArrayList<Integer> CollatzSequence = calculateNextCollatz(13, emptyList);
         
-        // Output the entire sequence.
-        for (int i = 0; i < CollatzSequence.size(); i++)
+        // Find the number that produces the largest sequence below a specified limit.
+        int limit = 100;
+        int longestSequence = 0;
+        int index = 0;
+        
+        for (int i = 1; i < limit; i++)
         {
-            System.out.print(CollatzSequence.get(i) + "\n");
+            int currentSequenceLength = getLength(calculateNextCollatz(i, emptyList));
+            
+            if (currentSequenceLength > longestSequence)
+            {
+                longestSequence = currentSequenceLength;
+                index = i;
+            }
         }
+        
+        // Output result.
+        System.out.print("The number that produces the longest Collatz sequence below 100 is " + index + " with a sequence length of " + longestSequence + " elements.\n\n");
         
     }
     
