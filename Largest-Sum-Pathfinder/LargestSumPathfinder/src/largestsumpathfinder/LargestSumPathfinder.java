@@ -6,7 +6,7 @@ import java.lang.*;
 
 public class LargestSumPathfinder {
 
-    /** program to traverse tree like structure whilst attempting to accumulate the largest sum of the node values visited. **/
+    /** program to traverse a tree like structure whilst attempting to accumulate the largest sum of all node values visited. **/
     public static void main(String[] args) {
         
         // Create root node.
@@ -25,22 +25,38 @@ public class LargestSumPathfinder {
         root.right.left = new Node(32);
         
         // Traverse the above tree structure.
+        System.out.print("Nodes (infix order):\n");
         traverse(root);
+        
+        // Find the path that contains the nodes with the highest values.
+        System.out.print("\nThe sum of the path with the largest node values is " + findPathWithLargestSum(root) + ".\n");
         
     }
     
-    /** method to traverse the tree of nodes. **/
+    /** !method to traverse the tree of nodes! **/
     /** !this method is only used for debugging! **/
+    /** !this method implements an infix tree traversal! **/
+    /** !this method implements recursion rather than iteration! **/
     public static void traverse(Node root)
     {
         if (root != null)
         {   
+            traverse(root.left);
+            
             System.out.print(root.value + "\n");
             
-            // Recursively traverse subtrees.
-            traverse(root.left);
             traverse(root.right);
         }
+    }
+    
+    /** method to traverse all possibilities and return the sum of the path which adds up to the highest value. **/
+    public static int findPathWithLargestSum(Node root)
+    {
+        int largestPathSum = 0;
+        
+        
+        
+        return largestPathSum;
     }
     
 }
