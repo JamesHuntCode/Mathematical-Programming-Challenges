@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         
         // Create sequence.
-        ArrayList<Long> FibonacciSequence = createFibonacciSequence(1000000000);
+        ArrayList<Long> FibonacciSequence = createFibonacciSequence(new BigInteger("99999999999999999999"));
               
         // Log the result (first fib number to contain 1000 digits.
         System.out.print("The first 1000 digit value in the Fibonacci sequence is " + getSpecificValue(10, FibonacciSequence) + ".\n\n");
@@ -18,7 +18,7 @@ public class Main {
     
     /** method to create the Fibonacci Sequence up until a defined limit **/
     /** this method takes in iterative approach to the Fibonacci sequence. **/
-    public static ArrayList<Long> createFibonacciSequence(long limit)
+    public static ArrayList<Long> createFibonacciSequence(BigInteger limit)
     {
         ArrayList<Long> FibSequence = new ArrayList<>();
         
@@ -26,7 +26,7 @@ public class Main {
         long temp = 1;
         long current = 1;
         
-        while (current < limit)
+        while (current < limit.longValue())
         {
             current = (temp + preTemp);
             FibSequence.add(current);
