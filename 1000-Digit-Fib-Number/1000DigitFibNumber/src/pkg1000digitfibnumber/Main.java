@@ -1,6 +1,7 @@
 package pkg1000digitfibnumber;
 
 import java.util.*;
+import java.math.*;
 
 public class Main {
 
@@ -8,10 +9,13 @@ public class Main {
     public static void main(String[] args) {
         
         // Create sequence.
-        
+        ArrayList<Integer> FibonacciSequence = createFibonacciSequence(100);
               
-        // Log the result.
-        
+        // Log the result (first fib number to contain 1000 digits.
+        for (int i = 0; i < FibonacciSequence.size(); i++)
+        {
+            System.out.print(FibonacciSequence.get(i) + "\n");
+        }
         
     }
     
@@ -21,7 +25,18 @@ public class Main {
     {
         ArrayList<Integer> FibSequence = new ArrayList<>();
         
+        int preTemp = 0;
+        int temp = 1;
+        int current = 1;
         
+        while (current < limit)
+        {
+            current = temp + preTemp;
+            FibSequence.add(current);
+            
+            preTemp = temp;
+            temp = current;
+        }
         
         return FibSequence;
     }
