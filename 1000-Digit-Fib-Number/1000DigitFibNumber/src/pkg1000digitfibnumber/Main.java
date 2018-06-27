@@ -9,10 +9,10 @@ public class Main {
     public static void main(String[] args) {
         
         // Create sequence.
-        ArrayList<Long> FibonacciSequence = createFibonacciSequence(1000);
+        ArrayList<Long> FibonacciSequence = createFibonacciSequence(1000000000);
               
         // Log the result (first fib number to contain 1000 digits.
-        System.out.print("The first 1000 digit value in the Fibonacci sequence is " + getSpecificValue(1000, FibonacciSequence) + ".\n\n");
+        System.out.print("The first 1000 digit value in the Fibonacci sequence is " + getSpecificValue(10, FibonacciSequence) + ".\n\n");
         
     }
     
@@ -39,9 +39,10 @@ public class Main {
     }
     
     /** method to iterate over the Fibonacci sequence and elicit the first 1000 digit number. **/
-    public static long getSpecificValue(int numberLength, ArrayList<Long> sequence)
+    public static long getSpecificValue(long numberLength, ArrayList<Long> sequence)
     {
         long firstOccuringValue = -1;
+        
         
         for (int i = 0; i < sequence.size(); i++)
         {
@@ -51,6 +52,7 @@ public class Main {
                 return firstOccuringValue;
             }
         }
+
         
         return firstOccuringValue;
     }
