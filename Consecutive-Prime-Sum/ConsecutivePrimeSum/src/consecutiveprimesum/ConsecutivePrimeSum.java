@@ -16,13 +16,30 @@ public class ConsecutivePrimeSum {
         {
             for (int j = 0; j < 100; j++)
             {
-                
+                if ((isPrime(i)) && (isPrime(j)) && (isPrime(i + j)))
+                {
+                    largestPrimeSum = (i + j);
+                }
             }
         }
         
         // Print result.
         System.out.print("The largest prime made from two other primes below 100 is " + largestPrimeSum + ".\n\n");
         
+    }
+    
+    /** method to detect if the number passed into the method is a prime number. **/
+    public static boolean isPrime(int number)
+    {
+        for (int i = 2; i < number; i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+        
+        return true;
     }
     
 }
