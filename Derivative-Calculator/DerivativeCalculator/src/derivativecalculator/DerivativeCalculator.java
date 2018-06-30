@@ -21,17 +21,21 @@ public class DerivativeCalculator {
     {
         if (action.equals("none"))
         {
+            String derivative = "";
+            
             double power = Double.parseDouble(inputFunction.split("tothe ")[1]);
 
-            String derivative = Math.round(power) + "x^" + Math.round((power - 1));
+            derivative = Math.round(power) + "x^" + Math.round((power - 1));
+            
             return derivative;
         }
         
-        else if  (action.equals("addition"))
+        else if (action.equals("addition"))
         {
             String derivative = "";
             
-            
+            // carry on from here.
+            // formula = derivative 1 + derivative 2.
             
             return derivative;
         }
@@ -40,14 +44,15 @@ public class DerivativeCalculator {
         {
             String derivative = "";
             
-            
+            // carry on from here.
+            // Formula = left (d-right) * right (d-left)
             
             return derivative;
         }
         
         else 
         {
-            return "Not implemented yet.";
+            return "Not implemented yet. Coming soon.";
         }
     }
     
