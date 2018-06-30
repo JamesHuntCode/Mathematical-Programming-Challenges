@@ -15,7 +15,10 @@ public class HighlyDivisibleTriangularNumber {
         // Log the triangular number with more than 'x' factors.
         int result = 0;
         
-        
+        for (int i = 0; i < sequence.size(); i++)
+        {
+            System.out.print(sequence.get(i) + "\n");
+        }
         
         // Output result.
         System.out.print("The first triangular number with more than 5 factors is " + result + ".\n\n");
@@ -28,9 +31,20 @@ public class HighlyDivisibleTriangularNumber {
     {
         ArrayList<Integer> sequence = new ArrayList<>();
         
-        for (int i = 0; i < terms; i++)
+        int termCount = 0;
+        
+        for (int i = 2; termCount < terms; i++)
         {
             
+            int term = 0;
+            
+            for (int j = (i - 1); j >= 0; j--)
+            {
+                term += j;
+            }
+            
+            sequence.add(term);
+            termCount++;
         }
         
         return sequence;
