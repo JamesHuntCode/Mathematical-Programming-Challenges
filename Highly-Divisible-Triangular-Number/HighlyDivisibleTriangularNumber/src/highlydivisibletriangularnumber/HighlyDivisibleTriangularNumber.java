@@ -14,10 +14,13 @@ public class HighlyDivisibleTriangularNumber {
         
         // Log the triangular number with more than 'x' factors.
         int result = 0;
+        int maxFactorCount = 0;
         
         for (int i = 0; i < sequence.size(); i++)
         {
-            System.out.print(sequence.get(i) + "\n");
+            int currentFactorCount = getFactors(sequence.get(i));
+            
+            if (currentFactorCount > maxFactorCount) result = sequence.get(i); 
         }
         
         // Output result.
@@ -55,7 +58,7 @@ public class HighlyDivisibleTriangularNumber {
     {
         int factorCount = 0;
         
-        for (int i = 0; i < number; i++)
+        for (int i = 1; i < number; i++)
         {
             if (number % i == 0)
             {
