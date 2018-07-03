@@ -6,9 +6,10 @@ import java.util.*;
 
 public class AmicablePairs {
 
-    /** program to find amicable pairs - for example: if d(a) = d(b) = a, then a and b are an amicable pair.  **/
+    /** program to find amicable pairs - for example: if d(a) = b *AND* d(b) = a, then a and b are an amicable pair.  **/
     public static void main(String[] args) {
         
+        // Find all of the amicable pairs below 'x'.
         
         
     }
@@ -18,7 +19,10 @@ public class AmicablePairs {
     {
         int sum = 0;
         
-        
+        for (int i = 1; i < value; i++)
+        {
+            if (value % i == 0) sum += i;
+        }
         
         return sum;
     }
