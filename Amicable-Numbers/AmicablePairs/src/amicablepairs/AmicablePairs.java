@@ -17,7 +17,7 @@ public class AmicablePairs {
     /** method to find all the proper divisors of the input and sum them. **/
     public static int getSumOfProperDivisors(int value)
     {
-        int sum = 0;
+        int sum = value;
         
         for (int i = 1; i < value; i++)
         {
