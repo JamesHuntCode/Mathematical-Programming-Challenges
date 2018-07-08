@@ -10,13 +10,24 @@ public class PrimeDigitReplacement {
     public static void main(String[] args) {
         
         // Get list of primes.
-        ArrayList<Integer> primeNumbers = getPrimes(10);
+        ArrayList<Integer> primeNumbers = getPrimes(100);
         
         for (int i = 0; i < primeNumbers.size(); i++)
         {
             System.out.print(primeNumbers.get(i) + "\n");
         }
         
+    }
+    
+    /** method to swap digits of a prime number and return the number of primes that can be created. **/
+    /** for example, let n = *3. * = 1 -> 9. if *3 is prime, increment the return value. **/ 
+    public static int replaceDigitsAndGetPrimeCount(int primeNumber)
+    {
+        int primeCount = 0;
+        
+        
+        
+        return primeCount;
     }
     
     /** method to calculate the prime numbers up until the specified limit. **/
