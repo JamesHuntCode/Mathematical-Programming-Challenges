@@ -24,8 +24,17 @@ public class PrimeDigitReplacement {
     public static int replaceDigitsAndGetPrimeCount(int primeNumber)
     {
         int primeCount = 0;
+        int numberLength = String.valueOf(primeNumber).length();
         
-        
+        for (int i = 1; i < numberLength; i++)
+        {
+            for (int j = 1; j < 10; j++)
+            {
+                // go from int to string, (split that string into a string / char array), then iterate over the array and swap out all values for the current value of j.
+                // check if that value is prime, if so, increment the primeCount variable.
+                // when done, return.
+            }
+        }
         
         return primeCount;
     }
