@@ -35,6 +35,7 @@ public class PrimeDigitReplacement {
                 for (int j = 1; j < 10; j++)
                 {
                     // come back here...
+                    // split int into int array of digits, replace integer in array at index i with j and check if prime - repeat for all indexes in int array.
                 }
             }
 
