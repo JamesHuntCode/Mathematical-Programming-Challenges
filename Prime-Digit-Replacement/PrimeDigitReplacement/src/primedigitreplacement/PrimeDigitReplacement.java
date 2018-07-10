@@ -12,10 +12,10 @@ public class PrimeDigitReplacement {
         // Get list of primes.
         ArrayList<Integer> primeNumbers = getPrimes(100);
         
-        for (int i = 0; i < primeNumbers.size(); i++)
-        {
-            System.out.print(primeNumbers.get(i) + "\n");
-        }
+//        for (int i = 0; i < primeNumbers.size(); i++)
+//        {
+//            System.out.print(primeNumbers.get(i) + "\n");
+//        }
         
         replaceDigitsAndGetPrimeCount(10);
         
@@ -25,27 +25,25 @@ public class PrimeDigitReplacement {
     /** for example, let n = *3. * = 1 -> 9. if *3 is prime, increment the return value. **/ 
     public static int replaceDigitsAndGetPrimeCount(int primeNumber)
     {
-        int primeCount = 0;
-        int numberLength = String.valueOf(primeNumber).length();
-        
-        for (int i = 1; i < numberLength; i++)
+        if (String.valueOf(primeNumber).length() > 1)
         {
-            for (int j = 1; j < 10; j++)
+            int primeCount = 0;
+            int numberLength = String.valueOf(primeNumber).length();
+
+            for (int i = 0; i < numberLength; i++)
             {
-                String stringValue = String.valueOf(primeNumber);             
-                String[] digits = stringValue.split("");              
-                digits[i] = String.valueOf(j);
-                
-                if (isPrime(Integer.parseInt(String.valueOf(digits))))
+                for (int j = 1; j < 10; j++)
                 {
-                    primeCount++;
+                    // come back here...
                 }
-                
-                System.out.print(String.valueOf(digits) + "\n");
             }
+
+            return primeCount;
         }
-        
-        return primeCount;
+        else 
+        {
+            return -1;
+        }
     }
     
     /** method to calculate the prime numbers up until the specified limit. **/
