@@ -17,6 +17,8 @@ public class PrimeDigitReplacement {
             System.out.print(primeNumbers.get(i) + "\n");
         }
         
+        replaceDigitsAndGetPrimeCount(10);
+        
     }
     
     /** method to swap digits of a prime number and return the number of primes that can be created. **/
@@ -30,9 +32,16 @@ public class PrimeDigitReplacement {
         {
             for (int j = 1; j < 10; j++)
             {
-                // go from int to string, (split that string into a string / char array), then iterate over the array and swap out all values for the current value of j.
-                // check if that value is prime, if so, increment the primeCount variable.
-                // when done, return.
+                String stringValue = String.valueOf(primeNumber);             
+                String[] digits = stringValue.split("");              
+                digits[i] = String.valueOf(j);
+                
+                if (isPrime(Integer.parseInt(String.valueOf(digits))))
+                {
+                    primeCount++;
+                }
+                
+                System.out.print(String.valueOf(digits) + "\n");
             }
         }
         
