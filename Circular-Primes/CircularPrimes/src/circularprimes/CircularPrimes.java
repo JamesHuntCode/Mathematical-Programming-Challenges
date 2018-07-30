@@ -12,10 +12,32 @@ public class CircularPrimes {
         int limit = 100;
         ArrayList<Integer> primes = getPrimes(10);
         
+        ArrayList<Integer> circularPrimes = new ArrayList<>();
+        
+        // Get the circular primes.
         for (int i = 0; i < limit; i++)
         {
-            
+            if (allCombinationsArePrime(i))
+            {
+                circularPrimes.add(i);
+            }
         }
+        
+        // Log the results.
+        for (int i = 0; i < circularPrimes.size(); i++)
+        {
+            System.out.print(String.valueOf(circularPrimes.get(i)) + "\n");
+        }
+    }
+    
+    /** Method to check all combinations of a prime value to see if all combinations create prime numbers. **/
+    public static boolean allCombinationsArePrime(int primeNumber)
+    {
+        boolean statement = true;
+        
+        
+        
+        return statement;
     }
     
     /* Method to return out a list of prime to an specified number of terms. **/
