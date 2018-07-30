@@ -33,11 +33,26 @@ public class CircularPrimes {
     /** Method to check all combinations of a prime value to see if all combinations create prime numbers. **/
     public static boolean allCombinationsArePrime(int primeNumber)
     {
-        boolean statement = true;
+        for (int i = 0; i < String.valueOf(primeNumber).length(); i++)
+        {
+            if (String.valueOf(primeNumber).length() == 1)
+            {
+                return true;
+            }
+            else 
+            {
+                int[] combinations = switchDigits(primeNumber);
+                
+                for (int j = 0; j < combinations.length; j++)
+                {
+                    if (!isPrime(combinations[i])) return false;
+                }
+                
+                return true;
+            }
+        }
         
-        
-        
-        return statement;
+        return true;
     }
     
     /* Method to return out a list of prime to an specified number of terms. **/
