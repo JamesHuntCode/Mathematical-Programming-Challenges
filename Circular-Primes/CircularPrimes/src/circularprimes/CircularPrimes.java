@@ -41,11 +41,11 @@ public class CircularPrimes {
             }
             else 
             {
-                int[] combinations = switchDigits(primeNumber);
+                ArrayList<Integer> combinations = switchDigits(primeNumber);
                 
-                for (int j = 0; j < combinations.length; j++)
+                for (int j = 0; j < combinations.size(); j++)
                 {
-                    if (!isPrime(combinations[i])) return false;
+                    if (!isPrime(combinations.get(j))) return false;
                 }
                 
                 return true;
@@ -75,12 +75,15 @@ public class CircularPrimes {
         return primes;
     }
     
-    /** Method to return an array of the possible combinations of numbers based on the input prime number. **/
-    public static int[] switchDigits(int primeNumber)
+    /** Method to return an array list of the possible combinations of numbers based on the input prime number. **/
+    public static ArrayList<Integer> switchDigits(int primeNumber)
     {
-        int[] possibleValues = new int[String.valueOf(primeNumber).length()];
+        ArrayList<Integer> possibleValues = new ArrayList<>();
         
-        
+        for (int i = 0; i < String.valueOf(primeNumber).length(); i++)
+        {
+            int temp = Integer.parseInt(Character.toString(String.valueOf(primeNumber).charAt(i)));
+        }
         
         return possibleValues;
     }
