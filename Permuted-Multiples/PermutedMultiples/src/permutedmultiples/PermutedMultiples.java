@@ -9,37 +9,57 @@ public class PermutedMultiples {
 
     public static void main(String[] args) {
         
-        int limit = 1000;
-        int xValue = 6;
-        int smallestX = 0;
+//        int limit = 10000000;
+//        int xValue = 2;
+//        int smallestX = 0;
+        
+//        for (int i = 1; i < limit; i++)
+//        {
+//            ArrayList<Integer> integerValues = breakIntegerIntoArrayList(i);
+//            int incrementCounter = 1;
+//            
+//            for (int j = 1; j < xValue; j++)
+//            {
+//                ArrayList<Integer> currentLoopIntegerValues = breakIntegerIntoArrayList(j * i);
+//                
+//                if (incrementCounter < 6)
+//                {
+//                    if (containTheSameValues(integerValues, currentLoopIntegerValues))
+//                    {
+//                        incrementCounter++;
+//                    }
+//                    else 
+//                    {
+//                        incrementCounter = 0;
+//                        break;
+//                    }
+//                }
+//                else 
+//                {
+//                    smallestX = i;
+//                }
+//            }
+//        }
+    
+        int limit = 1000000;
+        int smallest = 1;
         
         for (int i = 1; i < limit; i++)
         {
-            ArrayList<Integer> integerValues = breakIntegerIntoArrayList(i);
-            int incrementCounter = 1;
+            ArrayList<Integer> firstArray = breakIntegerIntoArrayList(i);
+            ArrayList<Integer> secondArray = breakIntegerIntoArrayList(i * 2);
             
-            for (int j = 1; j < xValue; j++)
+            if (containTheSameValues(firstArray, secondArray))
             {
-                ArrayList<Integer> currentLoopIntegerValues = breakIntegerIntoArrayList(j * i);
-                
-                if (incrementCounter < 6)
-                {
-                    if (containTheSameValues(integerValues, currentLoopIntegerValues))
-                    {
-                        incrementCounter++;
-                    }
-                    else 
-                    {
-                        incrementCounter = 0;
-                        break;
-                    }
-                }
-                else 
-                {
-                    smallestX = i;
-                }
+                break;
+            }
+            else 
+            {
+                smallest++;
             }
         }
+        
+        System.out.print("The value we are looking for is: " + smallest + "\n\n\n\n\n");
         
     }
     
@@ -61,10 +81,17 @@ public class PermutedMultiples {
     /** method to compare values inside two array lists. **/
     public static boolean containTheSameValues(ArrayList<Integer> compareMe, ArrayList<Integer> againstMe)
     {
-        boolean match = true;
+        for (int i = 0; i < compareMe.size(); i++)
+        {
+            if (!(againstMe.contains(compareMe.get(i))))
+            {
+                if (compareMe.size() == againstMe.size())
+                {
+                    return false;
+                }
+            }
+        }
         
-        
-        
-        return match;
+        return true;
     }
 }
