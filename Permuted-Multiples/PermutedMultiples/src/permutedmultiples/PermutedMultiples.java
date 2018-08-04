@@ -83,13 +83,7 @@ public class PermutedMultiples {
     {
         for (int i = 0; i < compareMe.size(); i++)
         {
-            if (!(againstMe.contains(compareMe.get(i))))
-            {
-                if (compareMe.size() == againstMe.size())
-                {
-                    return false;
-                }
-            }
+            // come back here and write comparison algorithm...
         }
         
         return true;
