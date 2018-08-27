@@ -16,12 +16,31 @@ public class NameScoresChallenge {
     
     public static int getScoreForName(String name)
     {
-        return 1;
+        int total = 0;
+        
+        for (int i = 0; i < name.length(); i++)
+        {
+            total += getScoreFromLetter(String.valueOf(name.charAt(i)));
+        }
+        
+        return total;
     }
     
     public static int getScoreFromLetter(String letter)
     {
-        return 1;
+        int index = 0;
+        String alphabet = getAlphabet();
+        
+        for (int i = 0; i < alphabet.length(); i++)
+        {
+            if (letter == String.valueOf(alphabet.charAt(i)))
+            {
+                index = i;
+                break;
+            }
+        }
+        
+        return index;
     }
     
     public static String getAlphabet()
