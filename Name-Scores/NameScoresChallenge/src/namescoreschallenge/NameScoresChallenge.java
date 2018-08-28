@@ -8,9 +8,9 @@ public class NameScoresChallenge {
     
     public static void main(String[] args) {
         
-        String name = "James";
+        String name = "example";
         
-        System.out.print(name + " has a letter score of " + getScoreForName(name));
+        System.out.print(name + " has a letter score of " + getScoreForName(name) + "\n\n");
                 
     }
     
@@ -20,7 +20,7 @@ public class NameScoresChallenge {
         
         for (int i = 0; i < name.length(); i++)
         {
-            total += getScoreFromLetter(String.valueOf(name.charAt(i)));
+            total += getScoreFromLetter(Character.toString((name.charAt(i))));
         }
         
         return total;
@@ -33,7 +33,7 @@ public class NameScoresChallenge {
         
         for (int i = 0; i < alphabet.length(); i++)
         {
-            if (letter == String.valueOf(alphabet.charAt(i)))
+            if (letter.equals(Character.toString(alphabet.charAt(i))))
             {
                 index = i;
                 break;
