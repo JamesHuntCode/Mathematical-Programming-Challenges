@@ -8,8 +8,20 @@ public class NonAbundantSums {
 
     public static void main(String[] args) {
         
+        // find sum of all abundant numbers below the first number to be a sum of two other abundant numbers.
         
+    }
+    
+    public static ArrayList<Integer> getAbundantNumbersUpTo(int limit)
+    {
+        ArrayList<Integer> numbers = new ArrayList<>();
         
+        for (int i = 12; i < limit; i++)
+        {
+            if (isAbundant(i)) numbers.add(i);
+        }
+        
+        return numbers;
     }
     
     public static int getSum(ArrayList<Integer> numbers)
