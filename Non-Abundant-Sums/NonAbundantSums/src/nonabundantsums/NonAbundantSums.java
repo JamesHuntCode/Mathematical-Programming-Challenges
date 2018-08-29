@@ -12,14 +12,23 @@ public class NonAbundantSums {
         
     }
     
-    public static int getSumOfAbundants(ArrayList<Integer> numbers)
+    public static int getSum(ArrayList<Integer> numbers)
     {
-        return 1;
+        int sum = 0;
+        
+        for (int i = 0; i < numbers.size(); i++)
+        {
+            sum += numbers.get(i);
+        }
+        
+        return sum;
     }
     
     public static boolean isAbundant(int number)
     {
-        return true;
+        ArrayList<Integer> divisors = getDivisorsOf(number);
+        
+        return getSum(divisors) > number;
     }
     
     public static ArrayList<Integer> getDivisorsOf(int number)
