@@ -8,7 +8,15 @@ public class NonAbundantSums {
 
     public static void main(String[] args) {
         
-        // find sum of all abundant numbers below the first number to be a sum of two other abundant numbers.
+        int sum = 0;
+        ArrayList<Integer> numbers = getAbundantNumbersUpTo(1000000);
+        
+        for (int i = 0; i < firstAbundantSumNumber(numbers); i++)
+        {
+            sum += numbers.get(i);
+        }
+        
+        System.out.print("Sum of all abundant numbers below the first sum of two abundant numbers is: " + sum + ".");
         
     }
     
