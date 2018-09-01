@@ -12,6 +12,25 @@ public class NonAbundantSums {
         
     }
     
+    public static int firstAbundantSumNumber(ArrayList<Integer> otherAbundantNumbers)
+    {
+        int result = 0;
+        
+        for (int i = 0; i < otherAbundantNumbers.size(); i++)
+        {
+            for (int j = 0; j < otherAbundantNumbers.size(); j++)
+            {
+                if (isAbundant(otherAbundantNumbers.get(i) + otherAbundantNumbers.get(j)))
+                {
+                    result = otherAbundantNumbers.get(i) + otherAbundantNumbers.get(j);
+                    return result;
+                }
+            }
+        }
+        
+        return result;
+    }
+    
     public static ArrayList<Integer> getAbundantNumbersUpTo(int limit)
     {
         ArrayList<Integer> numbers = new ArrayList<>();
