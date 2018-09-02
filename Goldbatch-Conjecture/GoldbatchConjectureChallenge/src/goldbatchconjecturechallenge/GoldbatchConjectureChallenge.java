@@ -48,10 +48,25 @@ public class GoldbatchConjectureChallenge {
     public static ArrayList<Integer> getOddComposites(int terms)
     {
         ArrayList<Integer> composites = new ArrayList<>();
+        int compositesFound = 0;
         
-        
+        for (int i = 4; compositesFound == terms; i++)
+        {
+            if (isOdd(i) && isComposite(i)) composites.add(i);
+            terms++;
+        }
         
         return composites;
+    }
+    
+    public static boolean isComposite(int number)
+    {
+        for (int i = 2; i < number - 1; i++)
+        {
+            if (number % i == 0) return true;
+        }
+        
+        return false;
     }
     
     public static boolean isOdd(int number)
