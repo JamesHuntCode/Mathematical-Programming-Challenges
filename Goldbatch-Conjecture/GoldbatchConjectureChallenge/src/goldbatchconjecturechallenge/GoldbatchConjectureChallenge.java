@@ -17,19 +17,33 @@ public class GoldbatchConjectureChallenge {
             if (!followsSuit(composites.get(i))) smallestValue = composites.get(i);
         }
         
-        System.out.print("Smallest odd composite not to be the sum of a prime and twice a square is: " + smallestValue);
+        System.out.print("Smallest odd composite not to be the sum of a prime and twice a square is: " + smallestValue + "\n\n");
         
     }
     
     public static ArrayList<Integer> getPrimes(int terms)
     {
         ArrayList<Integer> primes = new ArrayList<>();
+        int primesFound = 0;
         
-        
+        for (int i = 1; primesFound == terms; i++)
+        {
+            if (isPrime(i)) primes.add(i);
+            terms++;
+        }
         
         return primes;
     }
     
+    public static boolean isPrime(int number)
+    {
+        for (int i = 2; i < number - 1; i++)
+        {
+            if (number % i == 0) return false;
+        }
+        
+        return true;
+    }
     
     public static ArrayList<Integer> getOddComposites(int terms)
     {
@@ -38,6 +52,11 @@ public class GoldbatchConjectureChallenge {
         
         
         return composites;
+    }
+    
+    public static boolean isOdd(int number)
+    {
+        return number % 2 != 0;
     }
     
     public static boolean followsSuit(int number)
