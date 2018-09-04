@@ -76,7 +76,20 @@ public class GoldbatchConjectureChallenge {
     
     public static boolean followsSuit(int number)
     {
-        return true;
+        boolean follows = true;
+        
+        for (int i = 0; i < (number - 2); i++)
+        {
+            for (int j = 1; j < number; j++)
+            {
+                if (i + (2 * (Math.pow(j, 2))) == number)
+                {
+                    return true;
+                }
+            }
+        }
+        
+        return follows;
     }
     
 }
